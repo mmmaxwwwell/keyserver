@@ -18,6 +18,7 @@
 'use strict';
 
 const log = require('winston');
+log.add(new log.transports.Console())
 const config = require('config');
 const init = require('./app');
 
@@ -27,6 +28,6 @@ const init = require('./app');
     app.listen(config.server.port);
     log.info('app', `Listening on http://localhost:${config.server.port}`);
   } catch (err) {
-    log.error('app', 'Initialization failed!', err);
+    console.log('app', 'Initialization failed!', err);
   }
 })();
