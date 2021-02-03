@@ -69,7 +69,8 @@ class Email {
       from: {name: this._sender.name, address: this._sender.email},
       to: {name: userId.name, address: userId.email},
       subject: compiled.subject,
-      text: compiled.text
+      text: compiled.text,
+      html: compiled.text.replace('\n', '<br>')
     };
     return this._sendHelper(sendOptions);
   }
