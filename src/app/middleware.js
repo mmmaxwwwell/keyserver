@@ -51,9 +51,5 @@ exports.setHTTPResponseHeaders = async function(ctx, next) {
 };
 
 exports.logUnknownError = function(error, ctx) {
-  if (error.status) {
-    log.verbose('middleware', `Request failed: ${error.status} ${error.message}`);
-  } else {
-    log.error('middleware', 'Unknown error', error, ctx);
-  }
+  log.error('middleware', 'Unknown error', error, ctx);
 };

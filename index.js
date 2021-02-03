@@ -18,10 +18,8 @@
 'use strict';
 
 const cluster = require('cluster');
-const numCPUs = require('os').cpus().length;
 const config = require('config');
 const log = console;
-
 log.level = config.log.level;
 
 //
@@ -29,7 +27,8 @@ log.level = config.log.level;
 //
 
 if (cluster.isMaster) {
-  for (let i = 0; i < numCPUs; i++) {
+  const numProcesses = process.env.NUM_PROCESSES || require('os').cpus().length
+  for (let i = 0; i < numProcesses; i++) {
     cluster.fork();
   }
   cluster.on('fork', worker => log.info('cluster', `Forked worker #${worker.id} [pid:${worker.process.pid}]`));

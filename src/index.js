@@ -18,7 +18,6 @@
 'use strict';
 
 const log = console;
-log.add(new log.transports.Console())
 const config = require('config');
 const init = require('./app');
 

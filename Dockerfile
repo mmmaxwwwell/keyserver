@@ -9,4 +9,4 @@ COPY --chown=node:node ./package.json/ /home/node/app
 WORKDIR /home/node/app
 USER node
 RUN npm ci --production
-ENTRYPOINT [ "node", "--trace-warnings", "index.js"] 
+ENTRYPOINT [ "node", "index.js"] 
