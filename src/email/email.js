@@ -37,7 +37,6 @@ class Email {
    * @param {boolean} pgp        (optional) if outgoing emails are encrypted to the user's public key.
    */
   init({host, port = 465, auth, tls, starttls, pgp, sender}) {
-    console.log({host, port, auth, tls, starttls, pgp, sender})
     this._transporter = nodemailer.createTransport({
       host,
       port,
@@ -109,7 +108,6 @@ class Email {
    */
   async _sendHelper(sendOptions) {
     try {
-      console.log({sendOptions})
       const info = await this._transporter.sendMail(sendOptions);
       if (!this._checkResponse(info)) {
         log.warn('email', 'Message may not have been received.', info);

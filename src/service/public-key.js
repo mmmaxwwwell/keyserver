@@ -20,6 +20,7 @@
 const config = require('config');
 const util = require('./util');
 const tpl = require('../email/templates');
+const validDomains = process.env.ALLOWED_DOMAINS ? process.env.ALLOWED_DOMAINS.split(',') : undefined 
 
 /**
  * Database documents have the format:
@@ -75,6 +76,19 @@ class PublicKey {
     await this._purgeOldUnverified();
     // parse key block
     const key = await this._pgp.parseKey(publicKeyArmored);
+
+    //every one of our emails needs to end with an entry from valid domains
+    if(validDomains)
+      key.userIds.forEach(({email}) => {
+        var found = false;
+        validDomains.forEach(domain => {
+          if(email.toLowerCase().endsWith(domain))
+            found = true;
+          })
+        if(!found) 
+          util.throw(400, 'Provided email address is not in the list of accepted domains.')
+      })
+
     // if emails array is empty, all userIds of the key will be submitted
     if (emails.length) {
       // keep submitted user IDs only

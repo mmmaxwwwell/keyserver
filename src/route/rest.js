@@ -42,6 +42,7 @@ class REST {
     if (!publicKeyArmored) {
       ctx.throw(400, 'Invalid request!');
     }
+    console.log(emails);
     const origin = util.origin(ctx);
     await this._publicKey.put({emails, publicKeyArmored, origin}, ctx);
     ctx.body = 'Upload successful. Check your inbox to verify your email address.';
