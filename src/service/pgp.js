@@ -17,7 +17,7 @@
 
 'use strict';
 
-const log = require('winston');
+const log = console;
 const util = require('./util');
 const openpgp = require('openpgp');
 

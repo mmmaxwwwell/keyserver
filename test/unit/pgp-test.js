@@ -1,7 +1,7 @@
 'use strict';
 
 const fs = require('fs');
-const log = require('winston');
+const log = console;
 const openpgp = require('openpgp');
 const PGP = require('../../src/service/pgp');
 

@@ -6,7 +6,7 @@ const nodemailer = require('nodemailer');
 const templates = require('../../src/email/templates');
 const config = require('config');
 const fs = require('fs');
-const log = require('winston');
+const log = console;
 
 describe('Koa App (HTTP Server) Integration Tests', function() {
   this.timeout(20000);

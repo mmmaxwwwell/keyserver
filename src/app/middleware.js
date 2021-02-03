@@ -17,7 +17,7 @@
 
 'use strict';
 
-const log = require('winston');
+const log = console;
 const config = require('config');
 const util = require('../service/util');
 
