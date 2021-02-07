@@ -68,7 +68,7 @@
 
     <div class="col-lg-12">
       <h2>HKP and REST Apis</h2>
-      <p>The server offers a modern REST api over HTTPS with HSTS and public key pinning that can be integrated into any app architecture. It is also compatible to the OpenPGP HTTP Keyserver Protocol (HKP). Just copy and paste <a href="hkps://<%- process.env.HOSTED_URL %>" target="_blank">hkps://<%- process.env.KEYSERVER_SUBDOMAIN %><%- process.env.HOSTED_URL %>" target="_blank">hkps://<%- process.env.KEYSERVER_SUBDOMAIN %><%- process.env.HOSTED_URL %></a> into your current OpenPGP plugin and go. <a href="https://github.com/mmmaxwwwell/keyserver/blob/master/README.md#api" target="_blank">Learn more</a>.</p>
+      <p>The server offers a modern REST api over HTTPS with HSTS and public key pinning that can be integrated into any app architecture. It is also compatible to the OpenPGP HTTP Keyserver Protocol (HKP). Just copy and paste <a href="hkps://<%- process.env.KEYSERVER_SUBDOMAIN + process.env.HOSTED_URL + "\" target=\"_blank\"" %>hkps://<%- process.env.KEYSERVER_SUBDOMAIN %><%- process.env.HOSTED_URL %>" target="_blank">hkps://<%- process.env.KEYSERVER_SUBDOMAIN %><%- process.env.HOSTED_URL %></a> into your current OpenPGP plugin and go. <a href="https://github.com/mmmaxwwwell/keyserver/blob/master/README.md#api" target="_blank">Learn more</a>.</p>
     </div>
   </div> <!-- /row marketing -->
 
